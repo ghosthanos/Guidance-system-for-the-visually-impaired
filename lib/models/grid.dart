@@ -13,7 +13,6 @@ GridList allGrid = GridList(grid: [
   GridItem(title: 'title2', path: 'gridimages/profile2.png'),
   GridItem(title: 'Ambulance', path: 'gridimages/profile3.png'),
   GridItem(title: 'title4', path: 'gridimages/profile4.png'),
-  GridItem(title: 'title5', path: 'gridimages/profile5.png'),
   GridItem(title: 'profile', path: 'gridimages/profile6.png'),
 ]);
 

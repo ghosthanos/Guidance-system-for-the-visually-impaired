@@ -18,7 +18,7 @@ class GoogleMap extends StatelessWidget {
               style: TextButton.styleFrom(
                 elevation: 10,
                 shadowColor: Color.fromRGBO(128, 45, 83, 1),
-                backgroundColor: Color.fromRGBO(214, 226, 234, 1),
+                backgroundColor: Color.fromARGB(255, 241, 174, 191),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
                 ),
@@ -45,7 +45,7 @@ class GoogleMap extends StatelessWidget {
           Navigator.pop(context);
           // Add your onPressed code here!
         },
-        backgroundColor: Color.fromRGBO(214, 226, 234, 1),
+        backgroundColor: Color.fromARGB(255, 241, 174, 191),
         child: const Icon(
           Icons.arrow_back_ios_new,
           color: Color.fromARGB(255, 193, 77, 106),

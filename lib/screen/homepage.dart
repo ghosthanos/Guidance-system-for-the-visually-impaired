@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:miniproject/Untitled-1.dart';
-import 'package:miniproject/loginwithanimation.dart';
 import 'package:miniproject/models/googlemaps.dart';
 import 'package:miniproject/pages/loginpage.dart';
 import 'package:miniproject/screen/homepage_grid.dart';
