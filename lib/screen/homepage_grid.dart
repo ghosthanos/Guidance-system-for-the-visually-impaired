@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:miniproject/Untitled-1.dart';
 import 'package:miniproject/models/googlemaps.dart';
 import 'package:miniproject/models/grid.dart';
+import 'package:miniproject/models/profile.dart';
 import 'package:miniproject/models/profile_page.dart';
 import 'package:miniproject/pages/loginpage.dart';
 import 'package:miniproject/utils/utils.dart';
@@ -54,7 +55,7 @@ class MainHomePageGrid extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Profile(),
+                    builder: (context) => NavBar(),
                   ));
             }
           },
@@ -73,14 +74,14 @@ class MainHomePageGrid extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 30,
+                  height: 22,
                 ),
                 Text(
                   allGrid.grid[i].title,
                   style: MainHeading,
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 25,
                 ),
               ],
             ),
