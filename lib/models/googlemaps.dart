@@ -1,14 +1,29 @@
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:miniproject/models/forMap.dart';
 import 'package:flutter/material.dart';
 
 class GoogleMap extends StatelessWidget {
-  const GoogleMap({Key? key}) : super(key: key);
+  GoogleMap({Key? key}) : super(key: key);
+  final List<String> itemList = [
+    'Where To',
+    ' Camera',
+    'Ambulance',
+    'Emergency Contacts',
+    'Profile'
+  ];
+  Future<void> speakText(String text) async {
+    await flutterTts.setLanguage('en-US');
+    await flutterTts.setPitch(1.0);
+    await flutterTts.setSpeechRate(0.55);
+    await flutterTts.speak(text);
+  }
 
+  final FlutterTts flutterTts = FlutterTts();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Color.fromARGB(255, 193, 77, 106),
+        color: Color.fromRGBO(6, 30, 69, 1),
         child: Align(
           alignment: Alignment.center,
           child: SizedBox(
@@ -17,14 +32,23 @@ class GoogleMap extends StatelessWidget {
             child: TextButton(
               style: TextButton.styleFrom(
                 elevation: 10,
-                shadowColor: Color.fromRGBO(128, 45, 83, 1),
-                backgroundColor: Color.fromARGB(255, 241, 174, 191),
+                shadowColor: Color.fromRGBO(6, 30, 69, 1),
+                backgroundColor: Color.fromRGBO(172, 212, 230, 1),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
                 ),
               ),
               onPressed: () {
+                speakText(
+                  'open google maps',
+                );
+                ;
+              },
+              onLongPress: () {
                 MapUtils.openMap(8.4705, 76.9794);
+                speakText(
+                  'Opening google maps',
+                );
               },
               child: Text(
                 'Open              Google Maps',
@@ -33,7 +57,7 @@ class GoogleMap extends StatelessWidget {
                   fontFamily: 'SourceSansPro',
                   fontSize: 21,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 193, 77, 106),
+                  color: Color.fromRGBO(6, 30, 69, 1),
                 ),
               ),
             ),
@@ -45,10 +69,10 @@ class GoogleMap extends StatelessWidget {
           Navigator.pop(context);
           // Add your onPressed code here!
         },
-        backgroundColor: Color.fromARGB(255, 241, 174, 191),
+        backgroundColor: Color.fromRGBO(172, 212, 230, 1),
         child: const Icon(
           Icons.arrow_back_ios_new,
-          color: Color.fromARGB(255, 193, 77, 106),
+          color: Color.fromRGBO(6, 30, 69, 1),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,

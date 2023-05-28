@@ -1,14 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:miniproject/Untitled-1.dart';
 import 'package:miniproject/models/googlemaps.dart';
-import 'package:miniproject/models/grid.dart';
+import 'package:miniproject/pages/emergency_contacts.dart';
+import 'package:miniproject/screen/grid.dart';
 import 'package:miniproject/models/profile.dart';
 import 'package:miniproject/models/profile_page.dart';
+import 'package:miniproject/pages/ambulance_call.dart';
 import 'package:miniproject/pages/loginpage.dart';
 import 'package:miniproject/utils/utils.dart';
 import 'package:audiofileplayer/audiofileplayer.dart';
 
 class MainHomePageGrid extends StatelessWidget {
+  Future<void> speakText(String text) async {
+    await flutterTts.setLanguage('en-US');
+    await flutterTts.setPitch(1.0);
+    await flutterTts.setSpeechRate(0.55);
+    await flutterTts.speak(text);
+  }
+
+  final List<String> itemList = [
+    'Where To',
+    ' Camera',
+    'Ambulance',
+    'Emergency Contacts',
+    'Profile'
+  ];
+  final FlutterTts flutterTts = FlutterTts();
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -19,6 +37,11 @@ class MainHomePageGrid extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: GestureDetector(
           onTap: () async {
+            speakText(
+              '${itemList[i]}',
+            );
+          },
+          onLongPress: () async {
             if (i == 0) {
               Navigator.push(
                   context,
@@ -31,7 +54,7 @@ class MainHomePageGrid extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LoginScreen(),
+                    builder: (context) => Ambulance(),
                   ));
             }
 
@@ -39,7 +62,7 @@ class MainHomePageGrid extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LoginScreen(),
+                    builder: (context) => Ambulance(),
                   ));
             }
 
@@ -47,7 +70,7 @@ class MainHomePageGrid extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LoginScreen(),
+                    builder: (context) => EmergencyContacts(),
                   ));
             }
 
@@ -55,14 +78,14 @@ class MainHomePageGrid extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => NavBar(),
+                    builder: (context) => MyHeaderDrawer(),
                   ));
             }
           },
           child: Container(
             margin: EdgeInsets.only(left: 0, right: 0),
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 247, 196, 209),
+              color: Color.fromRGBO(172, 212, 230, 1),
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(

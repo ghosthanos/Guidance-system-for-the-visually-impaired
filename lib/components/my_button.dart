@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class MyButton extends StatelessWidget {
   final Function()? onTap;
@@ -10,22 +11,27 @@ class MyButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(25),
+        padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.symmetric(horizontal: 25),
         decoration: BoxDecoration(
-          color: Color.fromRGBO(175, 73, 99, 1),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: const Center(
-          child: Text(
-            "Sign In",
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
+            borderRadius: BorderRadius.circular(10),
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Color.fromRGBO(67, 236, 227, 1),
+                Color.fromRGBO(20, 188, 233, 1)
+              ],
+            )),
+        child: Center(
+            child: Text(
+          "Sign In",
+          style: TextStyle(
+            fontFamily: "SourceSansPro",
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
           ),
-        ),
+        )),
       ),
     );
   }

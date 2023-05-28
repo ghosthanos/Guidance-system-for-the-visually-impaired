@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:miniproject/components/my_button.dart';
 import 'package:miniproject/components/my_texttfield.dart';
 import 'package:miniproject/components/square_tile.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({super.key});
@@ -63,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (context) {
         return const AlertDialog(
-          backgroundColor: Color.fromRGBO(175, 73, 99, 1),
+          backgroundColor: Color.fromRGBO(20, 188, 233, 1),
           title: Center(
             child: Text(
               'Incorrect Email',
@@ -81,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (context) {
         return const AlertDialog(
-          backgroundColor: Color.fromRGBO(175, 73, 99, 1),
+          backgroundColor: Color.fromRGBO(20, 188, 233, 1),
           title: Center(
             child: Text(
               'Incorrect Password',
@@ -96,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(246, 198, 210, 1),
+      backgroundColor: Color.fromRGBO(6, 30, 69, 1),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -107,19 +108,22 @@ class _LoginPageState extends State<LoginPage> {
               // logo
               Container(
                 height: 170,
-                child: Image.asset('images/app_logo.png'),
+                child:
+                    Image.asset('images/loginpagephoto-removebg-preview.png'),
               ),
 
               const SizedBox(height: 40),
 
               // welcome back, you've been missed!
-              Text(
-                'Welcome back you\'ve been missed!',
+              GradientText(
+                'Welcome back u have been missed',
                 style: TextStyle(
-                    color: Color.fromARGB(255, 62, 62, 62),
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'SourceSansPro'),
+                  fontSize: 20.0,
+                ),
+                colors: [
+                  Color.fromRGBO(67, 236, 227, 1),
+                  Color.fromRGBO(20, 188, 233, 1)
+                ],
               ),
 
               const SizedBox(height: 20),
@@ -150,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text(
                       'Forgot Password?',
-                      style: TextStyle(color: Color.fromARGB(255, 70, 70, 70)),
+                      style: TextStyle(color: Color.fromRGBO(172, 212, 230, 1)),
                     ),
                   ],
                 ),
@@ -173,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                     Expanded(
                       child: Divider(
                         thickness: 2,
-                        color: Color.fromRGBO(175, 73, 99, 1),
+                        color: Color.fromRGBO(20, 188, 233, 1),
                       ),
                     ),
                     Padding(
@@ -181,13 +185,13 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text(
                         'Or continue with',
                         style:
-                            TextStyle(color: Color.fromARGB(255, 57, 57, 57)),
+                            TextStyle(color: Color.fromRGBO(172, 212, 230, 1)),
                       ),
                     ),
                     Expanded(
                       child: Divider(
                         thickness: 2,
-                        color: Color.fromRGBO(175, 73, 99, 1),
+                        color: Color.fromRGBO(67, 236, 227, 1),
                       ),
                     ),
                   ],
@@ -202,15 +206,18 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Text(
                     'Not a member?',
-                    style: TextStyle(color: Colors.grey[700]),
+                    style: TextStyle(color: Color.fromRGBO(172, 212, 230, 1)),
                   ),
                   const SizedBox(width: 4),
-                  const Text(
+                  GradientText(
                     'Register now',
                     style: TextStyle(
-                      color: Color.fromRGBO(175, 73, 99, 1),
-                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
                     ),
+                    colors: [
+                      Color.fromRGBO(67, 236, 227, 1),
+                      Color.fromRGBO(20, 188, 233, 1)
+                    ],
                   ),
                 ],
               )

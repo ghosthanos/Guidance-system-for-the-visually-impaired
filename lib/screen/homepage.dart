@@ -1,31 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:miniproject/Untitled-1.dart';
 import 'package:miniproject/models/googlemaps.dart';
 import 'package:miniproject/pages/loginpage.dart';
 import 'package:miniproject/screen/homepage_grid.dart';
+import 'package:miniproject/test_homepage.dart';
 import 'package:miniproject/utils/utils.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class MainHomePage extends StatelessWidget {
   void signUserOut() {}
+  Future<void> speakText(String text) async {
+    await flutterTts.setLanguage('en-US');
+    await flutterTts.setPitch(1.0);
+
+    await flutterTts.setSpeechRate(0.51);
+    await flutterTts.speak(text);
+  }
+
+  final FlutterTts flutterTts = FlutterTts();
+  final List<String> itemList = ['Home', 'Camera', 'Settings'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Container(
-        color: Color.fromARGB(255, 193, 77, 106),
-        child: const Padding(
+        color: Color.fromRGBO(6, 30, 69, 1),
+        child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 9, vertical: 20),
           child: GNav(
-            backgroundColor: Color.fromARGB(255, 193, 77, 106),
+            backgroundColor: Color.fromRGBO(6, 30, 69, 1),
             gap: 8,
-            tabBackgroundColor: Color.fromARGB(255, 241, 174, 191),
+            tabBackgroundColor: Color.fromRGBO(172, 212, 230, 1),
             padding: EdgeInsets.symmetric(vertical: 13, horizontal: 30),
             tabs: [
               GButton(
                 icon: Icons.home,
-                iconColor: Color.fromRGBO(246, 198, 210, 1),
-                iconActiveColor: Color.fromRGBO(128, 45, 83, 1),
+                iconColor: Color.fromRGBO(67, 236, 227, 1),
+                iconActiveColor: Color.fromRGBO(6, 30, 69, 1),
                 text: 'Home',
                 textStyle: TextStyle(
                   fontFamily: 'SourceSansPro',
@@ -33,54 +46,76 @@ class MainHomePage extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
                 iconSize: 25,
+                onPressed: () async {
+                  speakText(
+                    'home',
+                  );
+                },
               ),
               GButton(
                 icon: Icons.remove_red_eye,
-                iconColor: Color.fromRGBO(246, 198, 210, 1),
-                iconActiveColor: Color.fromRGBO(128, 45, 83, 1),
+                iconColor: Color.fromRGBO(44, 212, 230, 1),
+                iconActiveColor: Color.fromRGBO(6, 30, 69, 1),
                 text: 'Camera',
                 textStyle: TextStyle(
                     fontFamily: 'SourceSansPro',
                     fontSize: 23,
                     fontWeight: FontWeight.w500),
                 iconSize: 33,
+                onPressed: () async {
+                  speakText(
+                    'Camera',
+                  );
+                },
               ),
               GButton(
                 icon: Icons.settings,
-                iconColor: Color.fromRGBO(246, 198, 210, 1),
-                iconActiveColor: Color.fromRGBO(128, 45, 83, 1),
+                iconColor: Color.fromRGBO(20, 188, 233, 1),
+                iconActiveColor: Color.fromRGBO(6, 30, 69, 1),
                 text: 'Settings',
                 textStyle: TextStyle(
                     fontFamily: 'SourceSansPro',
                     fontSize: 20,
                     fontWeight: FontWeight.w500),
                 iconSize: 25,
+                onPressed: () async {
+                  speakText(
+                    'Settings',
+                  );
+                },
               ),
             ],
           ),
         ),
       ),
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color.fromARGB(255, 193, 77, 106),
+      backgroundColor: Color.fromRGBO(6, 30, 69, 1),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 193, 77, 106),
+        backgroundColor: Color.fromRGBO(6, 30, 69, 1),
         shadowColor: Color.fromRGBO(128, 45, 83, 1),
         elevation: 0,
         leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.home),
-          color: Color.fromRGBO(246, 198, 210, 1),
+          onPressed: () {
+            speakText(
+              'Hello!!!....Welcome to our app..............To navigate through the app.....click on a button to know what it does..............long press to use it',
+            );
+          },
+          icon: const Icon(Icons.question_mark),
+          color: Color.fromRGBO(67, 236, 227, 1),
           iconSize: 37,
         ),
         title: new Padding(
           padding: const EdgeInsets.only(left: 20.0),
-          child: Text(
-            'MINI-PROJECT',
+          child: GradientText(
+            'MINI-PROJECT  ',
             style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 25,
-              color: Color.fromRGBO(246, 198, 210, 1),
+              fontSize: 26.0,
+              fontWeight: FontWeight.w700,
             ),
+            colors: [
+              Color.fromRGBO(67, 236, 227, 1),
+              Color.fromRGBO(20, 188, 233, 1),
+            ],
           ),
         ),
         actions: <Widget>[
@@ -88,7 +123,7 @@ class MainHomePage extends StatelessWidget {
             icon: const Icon(
               Icons.logout,
               size: 35,
-              color: Color.fromRGBO(246, 198, 210, 1),
+              color: Color.fromRGBO(20, 188, 233, 1),
             ),
             onPressed: () {
               Navigator.push(
@@ -104,15 +139,17 @@ class MainHomePage extends StatelessWidget {
         children: [
           SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
+            padding: EdgeInsets.all(8.0),
+            child: GradientText(
               'Welcome Back!',
               style: TextStyle(
-                color: Color.fromRGBO(246, 198, 210, 1),
-                fontSize: 30,
-                fontFamily: 'SourceSansPro',
-                fontWeight: FontWeight.bold,
+                fontSize: 33.0,
+                fontWeight: FontWeight.w500,
               ),
+              colors: [
+                Color.fromRGBO(67, 236, 227, 1),
+                Color.fromRGBO(20, 188, 233, 1)
+              ],
               textAlign: TextAlign.center,
             ),
           ),
