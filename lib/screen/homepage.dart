@@ -3,6 +3,8 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:miniproject/Untitled-1.dart';
 import 'package:miniproject/models/googlemaps.dart';
+import 'package:miniproject/models/profile_page.dart';
+import 'package:miniproject/pages/emergency_contacts.dart';
 import 'package:miniproject/pages/loginpage.dart';
 import 'package:miniproject/screen/homepage_grid.dart';
 import 'package:miniproject/test_homepage.dart';
@@ -79,9 +81,11 @@ class MainHomePage extends StatelessWidget {
                     fontWeight: FontWeight.w500),
                 iconSize: 25,
                 onPressed: () async {
-                  speakText(
-                    'Settings',
-                  );
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProfileScreen(),
+                      ));
                 },
               ),
             ],
@@ -104,20 +108,7 @@ class MainHomePage extends StatelessWidget {
           color: Color.fromRGBO(67, 236, 227, 1),
           iconSize: 37,
         ),
-        title: new Padding(
-          padding: const EdgeInsets.only(left: 20.0),
-          child: GradientText(
-            'MINI-PROJECT  ',
-            style: TextStyle(
-              fontSize: 26.0,
-              fontWeight: FontWeight.w700,
-            ),
-            colors: [
-              Color.fromRGBO(67, 236, 227, 1),
-              Color.fromRGBO(20, 188, 233, 1),
-            ],
-          ),
-        ),
+        title: Image.asset('images/appbar_image.png'),
         actions: <Widget>[
           IconButton(
             icon: const Icon(
