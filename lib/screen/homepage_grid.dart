@@ -4,7 +4,7 @@ import 'package:miniproject/Untitled-1.dart';
 import 'package:miniproject/models/googlemaps.dart';
 import 'package:miniproject/pages/emergency_contacts.dart';
 import 'package:miniproject/screen/grid.dart';
-import 'package:miniproject/models/profile.dart';
+import 'package:miniproject/models/openscreen.dart';
 import 'package:miniproject/models/profile_page.dart';
 import 'package:miniproject/pages/ambulance_call.dart';
 import 'package:miniproject/pages/loginpage.dart';
@@ -74,11 +74,11 @@ class MainHomePageGrid extends StatelessWidget {
                   ));
             }
 
-            if (i == 5) {
+            if (i == 4) {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MyHeaderDrawer(),
+                    builder: (context) => ProfileScreen(),
                   ));
             }
           },
